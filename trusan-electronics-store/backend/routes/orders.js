@@ -1,0 +1,108 @@
+const express = require('express');
+const { loadStore, saveStore } = require('../utils/store');
+const { v4: uuidv4 } = require('uuid');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'trusan_secret_2026';
+
+function authMiddleware(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ message: 'Authorization header missing' });
+  }
+
+  const token = authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ message: 'Token missing' });
+  }
+
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+    req.user = decoded;
+    next();
+  });
+}
+
+const router = express.Router();
+
+router.post('/', authMiddleware, (req, res) => {
+  const { cartItems, shipping, paymentMethod, paymentData } = req.body;
+  if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0) {
+    return res.status(400).json({ message: 'Cart items are required to create an order' });
+  }
+
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const order = {
+    id: `order-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    customerId: req.user.id,
+    customerName: req.user.name,
+    customerEmail: req.user.email,
+    cartItems,
+    shipping: shipping || {},
+    paymentMethod: paymentMethod || 'cash-on-delivery',
+    paymentData: paymentData || null,
+    total,
+    status: paymentMethod === 'mobile-money' ? 'Payment Confirmed' : 'Processing',
+    createdAt: new Date().toISOString(),
+    updates: [
+      {
+        status: paymentMethod === 'mobile-money' ? 'Payment Confirmed' : 'Processing',
+        message: paymentMethod === 'mobile-money'
+          ? `Mobile money payment received from ${paymentData?.phoneNumber} (${paymentData?.provider === 'mtn' ? 'MTN' : 'Airtel'})`
+          : 'Order received and is being prepared',
+        timestamp: new Date().toISOString()
+      }
+    ]
+  };
+
+  const store = loadStore();
+  store.orders = store.orders || [];
+  store.orders.push(order);
+  saveStore(store);
+
+  res.json({ order });
+});
+
+router.get('/:id', authMiddleware, (req, res) => {
+  const store = loadStore();
+  const order = (store.orders || []).find((item) => item.id === req.params.id);
+  if (!order) {
+    return res.status(404).json({ message: 'Order not found' });
+  }
+
+  if (!req.user.isAdmin && order.customerEmail.toLowerCase() !== req.user.email.toLowerCase()) {
+    return res.status(403).json({ message: 'Forbidden' });
+  }
+
+  res.json({ order });
+});
+
+router.get('/user', authMiddleware, (req, res) => {
+  const store = loadStore();
+  const userOrders = (store.orders || []).filter(
+    (order) => order.customerEmail.toLowerCase() === req.user.email.toLowerCase()
+  );
+
+  res.json(userOrders);
+});
+
+router.get('/track', (req, res) => {
+  const { orderId, email } = req.query;
+  if (!orderId || !email) {
+    return res.status(400).json({ message: 'orderId and email are required' });
+  }
+
+  const store = loadStore();
+  const order = (store.orders || []).find(
+    (item) => item.id === orderId && item.customerEmail.toLowerCase() === email.toLowerCase()
+  );
+  if (!order) {
+    return res.status(404).json({ message: 'Order not found' });
+  }
+
+  res.json({ status: order.status, updates: order.updates });
+});
+
+module.exports = router;

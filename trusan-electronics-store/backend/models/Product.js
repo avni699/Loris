@@ -1,8 +1,16 @@
-const mongoose = require('mongoose');
+const { loadStore } = require('../utils/store');
 
-const ProductSchema = new mongoose.Schema({
-  name: String,
-  price: Number
-});
+function getProducts() {
+  const store = loadStore();
+  return store.products || [];
+}
 
-module.exports = mongoose.model('Product', ProductSchema);
+function getProductById(id) {
+  const products = getProducts();
+  return products.find((item) => item.id === id);
+}
+
+module.exports = {
+  getProducts,
+  getProductById
+};

@@ -1,0 +1,157 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Admin User",
+      "email": "admin@trusan.com",
+      "password": "Admin@123",
+      "isAdmin": true
+    },
+    {
+      "id": "user-1778494411859",
+      "name": "omoi lawrence",
+      "email": "lawrenceomoit66@gmail.com",
+      "passwordHash": "$2a$10$N5nCTqU3cSOyBFFjOibjhuQRaZW20E4sfiKHGKmguVWLkgcYAhdIe",
+      "isAdmin": false
+    }
+  ],
+  "products": [
+    {
+      "id": "jumia-phone-1",
+      "name": "Jumia SmartPhone X",
+      "category": "Phones",
+      "price": 249.99,
+      "currency": "USD",
+      "vendor": "Jumia",
+      "sourceUrl": "https://www.jumia.ug",
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+      "description": "Popular Jumia phone with 6.4\" display, dual cameras, and large battery for Uganda shoppers."
+    },
+    {
+      "id": "alibaba-laptop-1",
+      "name": "Alibaba WorkPro 15",
+      "category": "Laptops",
+      "price": 749.99,
+      "currency": "USD",
+      "vendor": "Alibaba",
+      "sourceUrl": "https://www.alibaba.com",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+      "description": "Durable laptop design sourced from Alibaba supplier networks with fast SSD and reliable performance."
+    },
+    {
+      "id": "google-tv-1",
+      "name": "Google Vision 55 OLED",
+      "category": "TVs",
+      "price": 1199.99,
+      "currency": "USD",
+      "vendor": "Google Store",
+      "sourceUrl": "https://store.google.com",
+      "image": "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80",
+      "description": "Smart 55-inch OLED TV with integrated Google TV and voice assistant support."
+    },
+    {
+      "id": "jumia-fridge-1",
+      "name": "Jumia FreshCool 300",
+      "category": "Fridges",
+      "price": 999.99,
+      "currency": "USD",
+      "vendor": "Jumia",
+      "sourceUrl": "https://www.jumia.ug",
+      "image": "https://images.unsplash.com/photo-1586201375761-83865001e8b7?auto=format&fit=crop&w=800&q=80",
+      "description": "Energy-efficient fridge with frost-free cooling and large storage for busy Ugandan households."
+    },
+    {
+      "id": "alibaba-audio-1",
+      "name": "Alibaba SoundPulse Headphones",
+      "category": "Audio",
+      "price": 129.99,
+      "currency": "USD",
+      "vendor": "Alibaba",
+      "sourceUrl": "https://www.alibaba.com",
+      "image": "https://images.unsplash.com/photo-1512499617640-c2f99912b6f2?auto=format&fit=crop&w=800&q=80",
+      "description": "Comfortable wireless headphones built for long listening sessions and affordable sourcing."
+    },
+    {
+      "id": "google-camera-1",
+      "name": "Google PixelCam 4K",
+      "category": "Cameras",
+      "price": 899.99,
+      "currency": "USD",
+      "vendor": "Google Store",
+      "sourceUrl": "https://store.google.com",
+      "image": "https://images.unsplash.com/photo-1519183071298-a2962f450d7f?auto=format&fit=crop&w=800&q=80",
+      "description": "Compact 4K camera for content creators, with advanced stabilization and cloud-ready upload support."
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1778494508769-ysqv1uzc2",
+      "customerId": "user-1778494411859",
+      "customerName": "omoi lawrence",
+      "customerEmail": "lawrenceomoit66@gmail.com",
+      "cartItems": [
+        {
+          "id": "jumia-phone-1",
+          "name": "Jumia SmartPhone X",
+          "category": "Phones",
+          "price": 249.99,
+          "currency": "USD",
+          "vendor": "Jumia",
+          "sourceUrl": "https://www.jumia.ug",
+          "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+          "description": "Popular Jumia phone with 6.4\" display, dual cameras, and large battery for Uganda shoppers.",
+          "quantity": 1
+        }
+      ],
+      "shipping": {
+        "name": "omoi lawrence",
+        "email": "lawrenceomoit66@gmail.com",
+        "address": "Nsambya Kampala",
+        "city": "Kamapala",
+        "zip": "00000",
+        "paymentMethod": "cash-on-delivery",
+        "paymentData": null,
+        "total": 249.99
+      },
+      "paymentMethod": "cash-on-delivery",
+      "paymentData": null,
+      "total": 249.99,
+      "status": "Processing",
+      "createdAt": "2026-05-11T10:15:08.769Z",
+      "updates": [
+        {
+          "status": "Processing",
+          "message": "Order received and is being prepared",
+          "timestamp": "2026-05-11T10:15:08.769Z"
+        }
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "title": "Mobile Money and Cash on Delivery",
+      "description": "Support MTN Mobile Money, Airtel Money, and cash-on-delivery so customers across Uganda can pay in the way they trust most.",
+      "benefit": "Reduces payment friction for customers without credit cards."
+    },
+    {
+      "title": "Local Pickup and Delivery Network",
+      "description": "Offer pickup locations in Kampala, Jinja, and Gulu plus last-mile delivery partnerships with local couriers.",
+      "benefit": "Speeds delivery and lowers shipping costs for rural customers."
+    },
+    {
+      "title": "Vendor Price Sync",
+      "description": "Automatically mirror electronics prices from marketplaces like Jumia, Alibaba, and Google wholesale suppliers for better sourcing decisions.",
+      "benefit": "Keeps catalog prices competitive and avoids inventory mismatches."
+    },
+    {
+      "title": "SMS Order Tracking",
+      "description": "Send order updates via SMS or WhatsApp to customers so they can follow shipments without mobile data.",
+      "benefit": "Improves trust and reduces customer support inquiries."
+    },
+    {
+      "title": "Mobile Money Integration",
+      "description": "Real-time mobile money payments through MTN Mobile Money and Airtel Money with instant confirmation and low transaction fees.",
+      "benefit": "Enables digital payments for 80% of Ugandan consumers who prefer mobile money over cards."
+    }
+  ]
+}

@@ -10,7 +10,7 @@ export default function Products({ onAddToCart }) {
   return (
     <div>
       <h1>Products</h1>
-      <div style={{ marginBottom: 16 }}>
+      <div style={{ marginBottom: 14 }}>
         {categories.map((category) => (
           <button
             key={category}
@@ -24,10 +24,10 @@ export default function Products({ onAddToCart }) {
       <div style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
         {filtered.map((product) => (
           <div key={product.id} style={{ border: '1px solid #ddd', borderRadius: 12, overflow: 'hidden', background: '#fff' }}>
-            <img src={product.image} alt={product.name} style={{ width: '100%', height: 180, objectFit: 'cover' }} />
+            <img src={product.image} alt={product.name} style={{ width: '70%', height: 100, objectFit: 'cover' }} />
             <div style={{ padding: 16 }}>
               <div style={{ fontSize: 12, color: '#888', marginBottom: 4 }}>{product.category}</div>
-              <h2 style={{ fontSize: 20, margin: '0 0 8px' }}>{product.name}</h2>
+              <h2 style={{ fontSize: 16, margin: '0 0 8px' }}>{product.name}</h2>
               <p style={{ margin: '0 0 12px', color: '#555' }}>{product.description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <strong>${product.price.toFixed(2)}</strong>

@@ -1,0 +1,68 @@
+# Trusan Electronics Terms and Conditions
+
+Please read these Terms and Conditions carefully before using Trusan Electronics.
+
+## 1. Introduction
+
+These terms govern your use of the Trusan Electronics website and services. By using the platform, you agree to follow and be bound by these terms.
+
+## 2. Account Responsibilities
+
+- You are responsible for keeping your account information secure.
+- You must provide accurate contact details, including email address and phone number.
+- You are responsible for all activity under your account.
+
+## 3. Orders and Pricing
+
+- Prices displayed on the site are subject to change without notice.
+- Orders are confirmed only after payment is processed or the order is accepted.
+- Trusan Electronics reserves the right to cancel or refuse any order in case of product unavailability or pricing errors.
+
+## 4. Payment and Delivery
+
+- Payment can be completed through the available payment methods at checkout.
+- For mobile money payments, please follow the mobile money process steps carefully.
+- Delivery dates are estimates and may vary based on location, stock, or shipping conditions.
+
+## 5. Returns, Refunds, and Cancellations
+
+- Return and refund policies apply based on product condition and store policy.
+- Contact customer support for return or cancellation requests.
+- Unauthorized returns may not be accepted.
+
+## 6. Customer Feedback
+
+- Feedback submitted on Trusan Electronics may be used to improve products and services.
+- Feedback should be honest and respectful.
+- The platform may remove feedback that violates community standards.
+
+## 7. Privacy and Data Collection
+
+- We collect and process personal information required to provide services, such as email, phone number, shipping address, and order history.
+- Personal data is handled in accordance with applicable privacy rules.
+- We do not share your personal data with unauthorized third parties.
+
+## 8. Intellectual Property
+
+- All content on the Trusan Electronics website, including text, images, and logos, is the property of Trusan Electronics or its partners.
+- You may not reproduce or use the content without permission.
+
+## 9. Limitation of Liability
+
+- Trusan Electronics is not liable for indirect, incidental, or consequential damages arising from your use of the website.
+- Liability is limited to the value of the order or service purchased.
+
+## 10. Contact and Support
+
+- For questions about these terms, contact customer support via WhatsApp at **0780275685**.
+- We strive to respond quickly to order and account issues.
+
+## 11. Changes to Terms
+
+- Trusan Electronics may update these Terms and Conditions from time to time.
+- Continued use of the site after changes means you accept the revised terms.
+
+## 12. Governing Law
+
+- These terms are governed by applicable local laws in the jurisdiction where Trusan Electronics operates.
+- Disputes should be resolved through the appropriate local legal process.
