@@ -1,5 +1,7 @@
 # Loris E-9
 
+> **We value customer satisfaction**
+
 Full-stack ecommerce platform for electronics with dynamic store branding.
 
 ## Local Development
@@ -27,8 +29,8 @@ The store name and branding are now dynamic! To change them, modify the environm
 
 ```bash
 STORE_NAME=Loris E-9
-STORE_EMAIL=admin@lorise9.com
-SUPPORT_WHATSAPP=0780275685
+STORE_EMAIL=lawrenceomoit66y@gmail.com
+SUPPORT_WHATSAPP=0790206354
 ```
 
 The backend API provides a `/api/config` endpoint that returns the current store configuration:
@@ -36,6 +38,14 @@ The backend API provides a `/api/config` endpoint that returns the current store
 ```bash
 curl http://localhost:5000/api/config
 ```
+
+## Contact & Support
+
+- **WhatsApp**: 0790206354
+- **WhatsApp Channel**: [Join here](https://whatsapp.com/channel/0029VbCseMv7IUYSEy2fqX2P)
+- **Phone**: +256790206354 or +256787772067
+- **Email**: lawrenceomoit66y@gmail.com
+- **Mobile Money Payment**: +256790206354
 
 ## GitHub Pages
 
