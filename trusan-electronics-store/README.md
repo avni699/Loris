@@ -76,8 +76,11 @@ If Vercel detects a monorepo, set the project root explicitly to `trusan-electro
 - Environment variables:
   - `NODE_ENV=production`
   - `PORT=10000`
+  - `FRONTEND_URL=https://<your-vercel-project>.vercel.app` ← Set this to your deployed Vercel frontend URL for CORS
 
 The repository includes `render.yaml` so Render can use the same service definition if it supports repo specs.
+
+**Note:** The backend uses `FRONTEND_URL` environment variable for CORS configuration. This must match your Vercel frontend domain to allow cross-origin requests.
 
 ### Local development with `.env`
 
