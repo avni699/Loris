@@ -10,7 +10,7 @@ const storeConfig = {
   whatsappChannel: process.env.WHATSAPP_CHANNEL || 'https://whatsapp.com/channel/0029VbCseMv7IUYSEy2fqX2P',
   mobileMoneyPhone: process.env.MOBILE_MONEY_PHONE || '+256790206354',
   apiVersion: '1.0.0',
-  currency: 'USD',
+  currency: 'UGX',
   timezone: 'Africa/Kampala',
   supportedCountries: ['Uganda'],
   defaultLanguage: 'en',

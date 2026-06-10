@@ -38,9 +38,9 @@ export default function OrderDetails({ user }) {
   };
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-UG', {
       style: 'currency',
-      currency: 'USD'
+      currency: 'UGX'
     }).format(amount);
   };
 

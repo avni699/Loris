@@ -87,7 +87,7 @@ export default function MobileMoneyPayment({ amount, onPaymentComplete, onCancel
           <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>
             UGX {Math.round(amount * 3700).toLocaleString()}
           </div>
-          <div style={{ color: '#666' }}>≈ ${amount.toFixed(2)} USD</div>
+          <div style={{ color: '#666' }}>≈ ${amount.toFixed(2)} UGX</div>
         </div>
 
         <label style={{ display: 'block', marginBottom: 16 }}>
