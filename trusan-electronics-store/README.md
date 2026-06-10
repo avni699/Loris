@@ -47,11 +47,41 @@ curl http://localhost:5000/api/config
 - **Email**: lawrenceomoit66y@gmail.com
 - **Mobile Money Payment**: +256790206354
 
-## GitHub Pages
+## Deployment: Vercel + Render
 
-The frontend site is published at:
+This repository is configured to deploy the frontend to Vercel and the backend to Render.
 
-- `https://omoit699.github.io/Trusan-Electronics-/`
+### Exact Vercel settings
+
+- Root directory: `trusan-electronics-store/frontend`
+- Framework preset: `Vite` (or `Other` with build command)
+- Build command: `npm install && npm run build`
+- Output directory: `dist`
+- Install command: `npm install`
+- Environment variable:
+  - `VITE_API_BASE_URL` = `https://<your-render-backend>.onrender.com`
+- Redirect all routes to `index.html` for client-side routing.
+
+If Vercel detects a monorepo, set the project root explicitly to `trusan-electronics-store/frontend`.
+
+### Exact Render service values
+
+- Service name: `loris-e9-backend`
+- Environment: `Node`
+- Branch: `main`
+- Root directory: `trusan-electronics-store/backend`
+- Build command: `npm install`
+- Start command: `node server.js`
+- Auto deploy: `Enabled`
+- Environment variables:
+  - `NODE_ENV=production`
+  - `PORT=10000`
+
+The repository includes `render.yaml` so Render can use the same service definition if it supports repo specs.
+
+### Local development with `.env`
+
+Copy `.env.example` to `.env` in the repo root and update values as needed.
 
 ## Documentation
 

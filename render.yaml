@@ -1,0 +1,14 @@
+services:
+  - type: web_service
+    name: loris-e9-backend
+    env: node
+    branch: main
+    root: trusan-electronics-store/backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+    autoDeploy: true
