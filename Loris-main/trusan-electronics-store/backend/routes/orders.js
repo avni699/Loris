@@ -65,20 +65,6 @@ router.post('/', authMiddleware, (req, res) => {
   res.json({ order });
 });
 
-router.get('/:id', authMiddleware, (req, res) => {
-  const store = loadStore();
-  const order = (store.orders || []).find((item) => item.id === req.params.id);
-  if (!order) {
-    return res.status(404).json({ message: 'Order not found' });
-  }
-
-  if (!req.user.isAdmin && order.customerEmail.toLowerCase() !== req.user.email.toLowerCase()) {
-    return res.status(403).json({ message: 'Forbidden' });
-  }
-
-  res.json({ order });
-});
-
 router.get('/user', authMiddleware, (req, res) => {
   const store = loadStore();
   const userOrders = (store.orders || []).filter(
@@ -103,6 +89,20 @@ router.get('/track', (req, res) => {
   }
 
   res.json({ status: order.status, updates: order.updates });
+});
+
+router.get('/:id', authMiddleware, (req, res) => {
+  const store = loadStore();
+  const order = (store.orders || []).find((item) => item.id === req.params.id);
+  if (!order) {
+    return res.status(404).json({ message: 'Order not found' });
+  }
+
+  if (!req.user.isAdmin && order.customerEmail.toLowerCase() !== req.user.email.toLowerCase()) {
+    return res.status(403).json({ message: 'Forbidden' });
+  }
+
+  res.json({ order });
 });
 
 module.exports = router;
