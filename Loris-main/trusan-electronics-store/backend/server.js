@@ -15,14 +15,26 @@ const feedbackRoutes = require('./routes/feedback');
 
 const app = express();
 const server = http.createServer(app);
+const frontendOrigin = process.env.FRONTEND_URL || '*';
+const socketCorsOptions = {
+  origin: frontendOrigin,
+  methods: ['GET', 'POST']
+};
+const corsOptions = {
+  origin: frontendOrigin,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+};
+
+if (frontendOrigin !== '*') {
+  corsOptions.credentials = true;
+  socketCorsOptions.credentials = true;
+}
+
 const io = new Server(server, {
-  cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-    methods: ['GET', 'POST']
-  }
+  cors: socketCorsOptions
 });
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Dynamic config endpoint

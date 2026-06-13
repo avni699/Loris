@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "node server.js",
+    "start": "node server.js",
     "import-images": "node scripts/downloadProductImages.js"
   },
   "dependencies": {
