@@ -10,7 +10,7 @@ import FeedbackPage from './pages/FeedbackPage';
 import OrderDetails from './pages/OrderDetails';
 import Integration from './pages/Integration';
 import OrderTracking from './pages/OrderTracking';
-import { fetchProducts, fetchCurrentUser } from './services/api';
+import { fetchProducts, fetchCurrentUser, placeOrderApi } from './services/api';
 import products from './data/products';
 
 export default function App() {
@@ -68,29 +68,19 @@ export default function App() {
     if (!user) return;
 
     try {
-      const result = await fetch('/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify({
-          cartItems,
-          shipping: orderData,
-          paymentMethod: orderData.paymentMethod,
-          paymentData: orderData.paymentData
-        })
+      const token = localStorage.getItem('authToken');
+      const result = await placeOrderApi({
+        cartItems,
+        shipping: orderData,
+        paymentMethod: orderData.paymentMethod,
+        paymentData: orderData.paymentData,
+        token
       });
-      const data = await result.json();
-      if (result.ok) {
-        setOrderHistory((current) => [...current, data.order]);
-        setCartItems([]);
-        setPage('home');
-      } else {
-        alert('Order placement failed: ' + data.message);
-      }
+      setOrderHistory((current) => [...current, result.order]);
+      setCartItems([]);
+      setPage('home');
     } catch (error) {
-      alert('Order placement failed: ' + error.message);
+      alert('Order placement failed: ' + (error.message || 'Unknown error'));
     }
   };
 
