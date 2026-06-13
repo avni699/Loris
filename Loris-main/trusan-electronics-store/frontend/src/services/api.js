@@ -1,4 +1,7 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+// Use `VITE_API_BASE_URL` when provided (e.g. during deployment). When empty,
+// requests will be sent to the same origin which enables deploying backend and
+// frontend to the same host (recommended for Render/Ender).
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
 async function request(path, options = {}) {
   const response = await fetch(`${BASE_URL}${path}`, {
