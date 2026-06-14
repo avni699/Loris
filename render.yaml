@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: loris-e9-backend
+    env: node
+    region: oregon
+    plan: free
+    rootDir: Loris-main/trusan-electronics-store/backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: STORE_NAME
+        value: Loris E-9
+      - key: STORE_EMAIL
+        value: lawrenceomoit66y@gmail.com
+      - key: SUPPORT_WHATSAPP
+        value: "0790206354"
